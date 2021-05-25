@@ -1,16 +1,14 @@
 const mongoose = require('mongoose');
 
-const boxSchema = new.mongoose.Schema({
+const boxSchema = new mongoose.Schema({
     orderNumber: {
         type: Number,
-        required: true,
-        trim: true
+        required: true
     },
 
     Empty: {
         type: Boolean,
-        required: true,
-        trime: true
+        required: true
     }
 
     
