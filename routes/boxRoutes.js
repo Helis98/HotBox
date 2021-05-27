@@ -33,6 +33,18 @@ app.get("/getorder", async (req,res) => {
     
 });
 
+app.get("/getstatus", async (req,res) => {
+  const id = req.body.BoxID;
+  const Box = await boxModel.findOne({BoxID : id});
+  //const response = Box.Empty;
+  try{
+    res.send(Box.Empty);
+  }catch(err){
+    res.status(500).send(err);
+  }
+  
+});
+
 app.patch("/giveorder", async (req,res) => {
   
   const id = req.body.BoxID;
