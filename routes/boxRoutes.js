@@ -42,7 +42,7 @@ const box = await boxModel.findOneAndUpdate(id, order);
 
 try{
   await box.save();
-  res.send(200);
+  res.sendStatus(200);
 }catch(err){
   res.status(500).send(err);
 }
@@ -50,10 +50,16 @@ try{
 });
 
 
-/*app.delete("/deletebox", async (req,res) => {
-    const Box = await boxModel.find({});
-    Box
-})*/
+app.delete("/deletebox", async (req,res) => {
+    const id = req.body.BoxID;
+
+    try{
+      await boxModel.findOneAndDelete(id);
+      res.sendStatus(200);
+    }catch(err){
+      res.status(500).send("Box doesnt exist?");
+    }
+})
 
 app.patch("/boxstatus", async (req, res) => {
     const id = req.body.BoxID;
