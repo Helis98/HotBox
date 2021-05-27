@@ -3,11 +3,13 @@ const boxModel = require('../models/BoxSchema');
 const crypto = require("crypto");
 const bodyParser = require('body-parser');
 const { db } = require('../models/BoxSchema');
+const mongoose = require('mongoose');
 const app = express();
 
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended : true}));
+mongoose.set('useFindAndModify', false);
 
 app.post("/addbox", async (req, res) => {
     req.body.BoxID = crypto.randomBytes(8).toString('hex');
@@ -31,6 +33,21 @@ app.get("/getorder", async (req,res) => {
     
 });
 
+app.patch("/giveorder", async (req,res) => {
+  
+  const id = req.body.BoxID;
+  const order = {orderNumber: req.body.orderNumber};
+
+const box = await boxModel.findOneAndUpdate(id, order);
+
+try{
+  await box.save();
+  res.send(200);
+}catch(err){
+  res.status(500).send(err);
+}
+
+});
 
 
 /*app.delete("/deletebox", async (req,res) => {
