@@ -75,10 +75,17 @@ app.delete("/deletebox", async (req,res) => {
 
 app.patch("/boxstatus", async (req, res) => {
     const id = req.body.BoxID;
-    //const updateStatus = req.body.status;
     const update = {Empty: req.body.status};
 
     const box = await boxModel.findOneAndUpdate(id, update);
+
+    try {
+        await box.save();
+        res.send(box.Empty);
+    } catch(err){
+      res.status(500).send(err);
+    }
+    
     /*try{
       var box = await boxModel.find({BoxID : id});
     }catch(err){
@@ -91,13 +98,6 @@ app.patch("/boxstatus", async (req, res) => {
       res.status(500).send("died updating");
     }*/
     
-    try {
-        await box.save();
-        res.send(box.Empty);
-    } catch(err){
-      res.status(500).send(err);
-    }
-
 });
 
 module.exports = app
