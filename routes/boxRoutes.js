@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended : true}));
 mongoose.set('useFindAndModify', false);
 
-app.post("/addbox", async (req, res) => {
+app.post("/addbox", async (req, res) => {                   //Adds box to the database, without ordernumber and with a randomized BoxID
     req.body.BoxID = crypto.randomBytes(8).toString('hex');
     const Box = new boxModel(req.body);
     
@@ -23,29 +23,7 @@ app.post("/addbox", async (req, res) => {
       }
 });
 
-app.get("/getorder", async (req,res) => {
-    const Box = await boxModel.find({});
-    try{
-      res.send(Box);
-    }catch(err){
-      res.status(500).send(err);
-    }
-    
-});
-
-app.get("/getstatus", async (req,res) => {
-  const id = req.body.BoxID;
-  const Box = await boxModel.findOne({BoxID : id});
-  //const response = Box.Empty;
-  try{
-    res.send(Box.Empty);
-  }catch(err){
-    res.status(500).send(err);
-  }
-  
-});
-
-app.patch("/giveorder", async (req,res) => {
+app.patch("/giveorder", async (req,res) => {                //Gives an order to the database by specifying the boxid and the order number
   
   const id = req.body.BoxID;
   const order = {orderNumber: req.body.orderNumber};
@@ -62,7 +40,32 @@ try{
 });
 
 
-app.delete("/deletebox", async (req,res) => {
+app.get("/getorder", async (req,res) => {                   //Gets an existing order from the database and send to a box
+    const Box = await boxModel.find({});
+    try{
+      res.send(Box);
+    }catch(err){
+      res.status(500).send(err);
+    }
+    
+});
+
+app.get("/getstatus", async (req,res) => {                  //Gets the status of a box, if it is empty or not
+  const id = req.body.BoxID;
+  const Box = await boxModel.findOne({BoxID : id});
+  //const response = Box.Empty;
+  try{
+    res.send(Box.Empty);
+  }catch(err){
+    res.status(500).send(err);
+  }
+  
+});
+
+
+
+
+app.delete("/deletebox", async (req,res) => {               //Deletes a box from the database
     const id = req.body.BoxID;
 
     try{
@@ -73,7 +76,7 @@ app.delete("/deletebox", async (req,res) => {
     }
 })
 
-app.patch("/boxstatus", async (req, res) => {
+app.patch("/boxstatus", async (req, res) => {                //Updates box status for empty field, so true or false
     const id = req.body.BoxID;
     const update = {Empty: req.body.status};
 
@@ -85,7 +88,7 @@ app.patch("/boxstatus", async (req, res) => {
     } catch(err){
       res.status(500).send(err);
     }
-    
+
     /*try{
       var box = await boxModel.find({BoxID : id});
     }catch(err){
