@@ -15,6 +15,10 @@ mongoose.connect(uri);
 
 app.use(boxRouter);
 
+app.get('/', function(req, res){
+    res.render('index.html');
+  });
+
 const port = process.env.PORT || 3000;
 
 app.listen(port, () => { console.log('Server is running...') }); //Listen on port 3000
