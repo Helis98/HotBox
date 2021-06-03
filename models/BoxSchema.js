@@ -17,8 +17,13 @@ const boxSchema = new mongoose.Schema({
 
     BoxNumber: {
         type: Number
+    },
+
+    QRCode: {
+        type: Buffer
     }
 
+    
     
 });
 

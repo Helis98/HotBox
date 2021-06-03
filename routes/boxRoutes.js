@@ -4,7 +4,10 @@ const crypto = require("crypto");
 const bodyParser = require('body-parser');
 const { db } = require('../models/BoxSchema');
 const mongoose = require('mongoose');
+const qr_code = require('qrcode');
+const { Code } = require('mongodb');
 const app = express();
+
 
 
 app.use(bodyParser.json());
@@ -25,10 +28,18 @@ app.post("/addbox", async (req, res) => {                   //Adds box to the da
 
 app.patch("/giveorder", async (req,res) => {                //Gives an order to the database by specifying the boxid and the order number
   
-  const id = req.body.BoxID;
+  const id = {BoxID: req.body.BoxID};
   const order = {orderNumber: req.body.orderNumber};
+ // const qr = {QRCode: crypto.randomBytes(8).toString('hex')};
+  
+  const qr = await qr_code.toDataURL("some string");      //Beginning of QRcode implementation
+  const code = Buffer.from(qr, 'base64');
+  const qrx = {QRCode: code};
 
-const box = await boxModel.findOneAndUpdate(id, order);
+
+await boxModel.findOneAndUpdate(id, order);
+const box = await boxModel.findOneAndUpdate(id, qrx);
+
 
 try{
   await box.save();
@@ -38,6 +49,7 @@ try{
 }
 
 });
+
 
 
 app.get("/getorder", async (req,res) => {                   //Gets an existing order from the database and send to a box
