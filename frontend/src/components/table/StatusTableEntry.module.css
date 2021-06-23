@@ -1,0 +1,44 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    border: solid black 1px;
+    border-top: 0px;
+    height: 4rem;
+    width: 35rem;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.id {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 75%;
+    height: 100%;
+    border-right: solid black 1px;
+}
+
+.id div{
+    margin-left: 1rem;
+}
+
+.status {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25%;
+    height: 100%;
+    border-right: solid black 1px;
+}
+
+.info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25%;
+    height: 100%;
+}

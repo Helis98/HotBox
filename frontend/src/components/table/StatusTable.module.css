@@ -1,0 +1,17 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: top;
+    height: 80vh;
+    width: 100vw;
+    margin-top: 10rem;
+}
+
+.main li {
+    list-style: none;
+}

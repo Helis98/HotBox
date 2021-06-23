@@ -1,0 +1,17 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    border: solid black 1px;
+    height: 4rem;
+    width: 35rem;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.container div {
+    margin: 1rem;
+}
