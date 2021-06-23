@@ -5,19 +5,32 @@ import StatusDisplay from "./StatusDisplay";
 
 function StatusTableHeader() {
   return (
-    <div className={classes.container}>
-      <div className={classes.header}>
-        <div className={classes.element}>
-          <div>
-            <StatusDisplay status="active"/>
+    <div>
+      <div className={classes.colorContainer}>
+        <div className={classes.header}>
+          <div className={classes.element}>
+            <div>
+              <StatusDisplay status="active" />
+            </div>
+            <span>Active</span>
           </div>
-          <span>Active</span>
+          <div className={classes.element}>
+            <div>
+              <StatusDisplay status="inactive" />
+            </div>
+            <span>Inactive</span>
+          </div>
         </div>
-        <div className={classes.element}>
-          <div>
-            <StatusDisplay status="inactive"/>
-          </div>
-          <span>Inactive</span>
+      </div>
+      <div className={classes.entryContainer}>
+        <div className={classes.id}>
+          <div>Box</div>
+        </div>
+        <div className={classes.status}>
+          <div>Status</div>
+        </div>
+        <div className={classes.info}>
+          <div>Info</div>
         </div>
       </div>
     </div>

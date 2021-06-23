@@ -1,6 +1,7 @@
 import React from "react";
 
 import classes from "./StatusTableEntry.module.css";
+import StatusDisplay from "./StatusDisplay";
 
 function StatusTableEntry(props) {
   return (
@@ -9,7 +10,7 @@ function StatusTableEntry(props) {
         <div>{props.id}</div>
       </div>
       <div className={classes.status}>
-        <div>{props.status}</div>
+        <div><StatusDisplay status={props.status}/></div>
       </div>
       <div className={classes.info}>
         <div>{props.info}</div>
