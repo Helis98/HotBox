@@ -1,7 +1,13 @@
 import React from "react";
 
+import StatusTable from "../components/table/StatusTable";
+
 function StatusPage() {
-    return <div>StatusPage</div>
+  return (
+    <div>
+      <StatusTable />
+    </div>
+  );
 }
 
 export default StatusPage;
