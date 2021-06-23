@@ -6,13 +6,13 @@ function StatusTableEntry(props) {
   return (
     <div className={classes.container}>
       <div className={classes.id}>
-        <div>Box</div>
+        <div>{props.id}</div>
       </div>
       <div className={classes.status}>
-        <div>Status</div>
+        <div>{props.status}</div>
       </div>
       <div className={classes.info}>
-        <div>Info</div>
+        <div>{props.info}</div>
       </div>
     </div>
   );

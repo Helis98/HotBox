@@ -1,0 +1,26 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.inactive {
+    border: solid black 1px;
+    background: none;
+    border-radius: 50%;
+    width: 1rem;
+    height: 1rem;
+}
+
+.active {
+    border: solid black 1px;
+    background: rgb(24, 151, 24);
+    border-radius: 50%;
+    width: 1rem;
+    height: 1rem;
+}

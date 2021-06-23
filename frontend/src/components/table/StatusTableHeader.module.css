@@ -12,6 +12,16 @@
     align-items: center;
 }
 
-.container div {
+.header {
     margin: 1rem;
+    display: flex;
+}
+
+.element {
+    display: flex;
+    margin-right: 3rem;
+}
+
+.element div {
+    margin-right: 5px;
 }

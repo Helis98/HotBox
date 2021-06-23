@@ -12,7 +12,7 @@ function StatusTable(props) {
           <StatusTableHeader />
         </li>
         <li>
-          <StatusTableEntry />
+          <StatusTableEntry id="Box" status="Status" info="Info"/>
         </li>
       </ul>
     </div>
