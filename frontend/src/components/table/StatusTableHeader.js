@@ -10,19 +10,19 @@ function StatusTableHeader() {
         <div className={classes.header}>
           <div className={classes.element}>
             <div>
-              <StatusDisplay status="active" />
+              <StatusDisplay status="statusActive" />
             </div>
             <span>Active</span>
           </div>
           <div className={classes.element}>
             <div>
-              <StatusDisplay status="inactive" />
+              <StatusDisplay status="statusInactive" />
             </div>
             <span>Inactive</span>
           </div>
           <div className={classes.element}>
             <div>
-              <StatusDisplay status="unavailable" />
+              <StatusDisplay status="statusUnavailable" />
             </div>
             <span>Unavailable</span>
           </div>
