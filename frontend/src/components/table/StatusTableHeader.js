@@ -20,6 +20,12 @@ function StatusTableHeader() {
             </div>
             <span>Inactive</span>
           </div>
+          <div className={classes.element}>
+            <div>
+              <StatusDisplay status="unavailable" />
+            </div>
+            <span>Unavailable</span>
+          </div>
         </div>
       </div>
       <div className={classes.entryContainer}>
