@@ -39,7 +39,7 @@ function AddBoxForm() {
           <input type="text" required id="info" ref={infoRef} />
         </div>
         <div className={classes.button}>
-          <button className='btn'>Add Box</button>
+          <button className="btn">Add Box</button>
         </div>
       </form>
     </div>

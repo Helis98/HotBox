@@ -1,71 +1,71 @@
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .colorContainer {
-    display: flex;
-    border: solid black 1px;
-    height: 4rem;
-    width: 35rem;
-    justify-content: flex-start;
-    align-items: center;
+  display: flex;
+  border: solid black 1px;
+  height: 4rem;
+  width: 35rem;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .header {
-    margin: 1rem;
-    display: flex;
+  margin: 1rem;
+  display: flex;
 }
 
 .element {
-    display: flex;
-    margin-right: 3rem;
+  display: flex;
+  margin-right: 3rem;
 }
 
 .element div {
-    margin-right: 5px;
+  margin-right: 5px;
 }
 
 .entryContainer {
-    display: flex;
-    border: solid black 1px;
-    border-top: 0px;
-    height: 4rem;
-    width: 35rem;
-    justify-content: flex-start;
-    align-items: center;
+  display: flex;
+  border: solid black 1px;
+  border-top: 0px;
+  height: 4rem;
+  width: 35rem;
+  justify-content: flex-start;
+  align-items: center;
 }
 
 .id {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    width: 75%;
-    height: 100%;
-    border-right: solid black 1px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 75%;
+  height: 100%;
+  border-right: solid black 1px;
 }
 
-.id div{
-    margin-left: 1rem;
+.id div {
+  margin-left: 1rem;
 }
 
 .status {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 25%;
-    height: 100%;
-    border-right: solid black 1px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25%;
+  height: 100%;
+  border-right: solid black 1px;
 }
 
 .info {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 25%;
-    height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 25%;
+  height: 100%;
 }
 
 .text {
-    font-weight: bold;
+  font-weight: bold;
 }

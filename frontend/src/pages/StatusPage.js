@@ -1,5 +1,3 @@
-import React from "react";
-
 import StatusTable from "../components/table/StatusTable";
 
 function StatusPage() {

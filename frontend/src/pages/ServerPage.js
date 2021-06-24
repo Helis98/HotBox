@@ -17,7 +17,7 @@ function ServerPage() {
     <div className={classes.main}>
       {!addModalOpen ? (
         <div>
-          <button className='btn' onClick={addButtonHandler}>
+          <button className="btn" onClick={addButtonHandler}>
             Add Box
           </button>
         </div>
@@ -25,7 +25,7 @@ function ServerPage() {
       {addModalOpen ? (
         <div className={classes.container}>
           <AddBoxForm />
-          <button className='btn' onClick={cancelButtonHandler}>
+          <button className="btn" onClick={cancelButtonHandler}>
             Cancel
           </button>
         </div>

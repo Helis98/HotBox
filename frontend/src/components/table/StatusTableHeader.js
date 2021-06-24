@@ -1,5 +1,3 @@
-import React from "react";
-
 import classes from "./StatusTableHeader.module.css";
 import StatusDisplay from "./StatusDisplay";
 
