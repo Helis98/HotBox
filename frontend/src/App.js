@@ -3,7 +3,7 @@ import { Route, Switch } from "react-router-dom";
 import StatusPage from "./pages/StatusPage";
 import OrderPage from "./pages/OrderPage";
 import ServerPage from "./pages/ServerPage";
-import NavBar from "./components/NavBar";
+import NavBar from "./components/ui/NavBar";
 
 function App() {
   return (
