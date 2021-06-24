@@ -31,17 +31,17 @@ function StatusTableHeader() {
       <div className={classes.entryContainer}>
         <div className={classes.id}>
           <div>
-            <text className={classes.text}>Box</text>
+            <span className={classes.text}>Box</span>
           </div>
         </div>
         <div className={classes.status}>
           <div>
-            <text className={classes.text}>Status</text>
+            <span className={classes.text}>Status</span>
           </div>
         </div>
         <div className={classes.info}>
           <div>
-            <text className={classes.text}>Info</text>
+            <span className={classes.text}>Info</span>
           </div>
         </div>
       </div>
