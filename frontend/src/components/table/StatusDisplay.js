@@ -4,13 +4,13 @@ import classes from "./StatusDisplay.module.css";
 
 function StatusDisplay(props) {
   let color = "none";
-  if (props.status == "active") {
+  if (props.status === "active") {
     color = "rgb(24, 151, 24)";
   }
-  if (props.status == "inactive") {
+  if (props.status === "inactive") {
     color = "none";
   }
-  if (props.status == "unavailable") {
+  if (props.status === "unavailable") {
     color = "rgb(230, 0, 0)";
   }
 
