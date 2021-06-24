@@ -1,5 +1,7 @@
 import { useRef } from "react";
 
+import classes from "./AddBoxForm.module.css";
+
 function AddBoxForm() {
   const boxidRef = useRef();
   const statusRef = useRef();
@@ -23,21 +25,21 @@ function AddBoxForm() {
 
   return (
     <div>
-      <form onSubmit={submitHandler}>
-        <div>
+      <form className={classes.form} onSubmit={submitHandler}>
+        <div className={classes.input}>
           <label htmlFor="boxid">Box ID</label>
           <input type="text" required id="boxid" ref={boxidRef} />
         </div>
-        <div>
+        <div className={classes.input}>
           <label htmlFor="status">Status</label>
           <input type="text" required id="status" ref={statusRef} />
         </div>
-        <div>
+        <div className={classes.input}>
           <label htmlFor="info">Info</label>
           <input type="text" required id="info" ref={infoRef} />
         </div>
-        <div>
-          <button>Add Box</button>
+        <div className={classes.button}>
+          <button className='btn'>Add Box</button>
         </div>
       </form>
     </div>
