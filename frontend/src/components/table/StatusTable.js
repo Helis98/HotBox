@@ -31,12 +31,12 @@ function StatusTable(props) {
   return (
     <div className={classes.main}>
       <ul>
-        <li>
+        <li key='tableheader'>
           <StatusTableHeader />
         </li>
         {TEST_DATA.map((entry) => {
           return (
-            <li>
+            <li key={entry.id}>
               <StatusTableEntry
                 id={entry.id}
                 status={entry.status}
