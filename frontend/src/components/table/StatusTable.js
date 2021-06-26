@@ -5,22 +5,22 @@ import StatusTableEntry from "./StatusTableEntry";
 const TEST_DATA = [
   {
     id: "box1",
-    status: "statusActive",
+    status: true,
     info: "todo",
   },
   {
     id: "box2",
-    status: "statusActive",
+    status: true,
     info: "todo",
   },
   {
     id: "box3",
-    status: "statusInactive",
+    status: false,
     info: "todo",
   },
   {
     id: "box4",
-    status: "statusInactive",
+    status: false,
     info: "todo",
   },
 ];
