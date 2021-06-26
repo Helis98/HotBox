@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-import classes from "./ServerPage.module.css";
+import classes from "./SystemPage.module.css";
 import AddBoxForm from "../components/forms/AddBoxForm";
 
 function ServerPage() {

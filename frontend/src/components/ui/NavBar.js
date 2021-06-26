@@ -15,7 +15,7 @@ function NavBar() {
             <Link to="/order">Order</Link>
           </li>
           <li>
-            <Link to="/server">Server</Link>
+            <Link to="/system">System</Link>
           </li>
         </ul>
       </nav>
