@@ -10,7 +10,7 @@ const TEST_DATA = [
   },
   {
     id: "box2",
-    status: "statusUnavailable",
+    status: "statusActive",
     info: "todo",
   },
   {
