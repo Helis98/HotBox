@@ -5,11 +5,11 @@ function StatusTableEntry(props) {
   return (
     <div className={classes.container}>
       <div className={classes.id}>
-        <div>{props.id}</div>
+        <div>{props.BoxNumber}</div>
       </div>
       <div className={classes.status}>
         <div>
-          <StatusDisplay status={props.status} />
+          <StatusDisplay status={props.Empty} />
         </div>
       </div>
       <div className={classes.info}>

@@ -4,24 +4,9 @@ import StatusTableEntry from "./StatusTableEntry";
 
 const TEST_DATA = [
   {
-    id: "box1",
-    status: true,
-    info: "todo",
-  },
-  {
-    id: "box2",
-    status: true,
-    info: "todo",
-  },
-  {
-    id: "box3",
-    status: false,
-    info: "todo",
-  },
-  {
-    id: "box4",
-    status: false,
-    info: "todo",
+    BoxID: "654655654",
+    BoxNumber: 10,
+    Empty: true,
   },
 ];
 
@@ -34,11 +19,11 @@ function StatusTable(props) {
         </li>
         {TEST_DATA.map((entry) => {
           return (
-            <li key={entry.id}>
+            <li key={entry.BoxID}>
               <StatusTableEntry
-                id={entry.id}
-                status={entry.status}
-                info={entry.info}
+                BoxNumber={entry.BoxNumber}
+                Empty={entry.Empty}
+                info={'todo'}
               />
             </li>
           );
