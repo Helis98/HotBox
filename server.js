@@ -1,10 +1,13 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const boxRouter = require('./routes/boxRoutes.js');
+const cors = require('cors');
+
 
 
 const app = express();
 app.use(express.json()); // Make sure it comes back as json
+app.use(cors());
 
 require('dotenv').config()
 const uri = process.env.MONGO_URL
