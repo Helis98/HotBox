@@ -1,6 +1,6 @@
 import { useRef } from "react";
 
-import classes from "./AddBoxForm.module.css";
+import classes from "./AdminModal.module.css";
 
 function AddBoxForm() {
   //const boxidRef = useRef();

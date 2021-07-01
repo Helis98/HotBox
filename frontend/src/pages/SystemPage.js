@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import classes from "./SystemPage.module.css";
-import AddBoxForm from "../components/forms/AddBoxForm";
+import AdminModal from "../components/modals/AdminModal";
 
 function ServerPage() {
   const [addModalOpen, setAddModalOpen] = useState(false);
@@ -24,7 +24,7 @@ function ServerPage() {
       ) : null}
       {addModalOpen ? (
         <div className={classes.container}>
-          <AddBoxForm />
+          <AdminModal />
           <button className="btn" onClick={cancelButtonHandler}>
             Cancel
           </button>
