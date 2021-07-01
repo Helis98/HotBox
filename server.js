@@ -9,8 +9,13 @@ const app = express();
 app.use(express.json()); // Make sure it comes back as json
 app.use(cors());
 
+app.options('*', cors());
+
+
 require('dotenv').config()
 const uri = process.env.MONGO_URL
+const code = process.env.CODE
+
 
 mongoose.set('useNewUrlParser', true);
 mongoose.set('useUnifiedTopology', true);
@@ -18,6 +23,22 @@ mongoose.connect(uri);
 
 app.use(boxRouter);
 
+app.get("/getcode", async (req,res) => {
+  
+  try{
+    const admin = req.body.code;
+    if(admin == code){
+      res.sendStatus(200);
+    }
+    else{
+      res.status(406).send("Code is wrong");
+    }
+  }
+  catch(err){
+    res.status(500).send(err);
+  }
+
+})
 /*app.get('/', function(req, res){
     res.render('index.html');
   });

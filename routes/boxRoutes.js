@@ -7,6 +7,8 @@ const mongoose = require('mongoose');
 const qr_code = require('qrcode');
 const { Code } = require('mongodb');
 const app = express();
+//const JsBarcode = require('jsbarcode');
+//const Canvas = require('canvas');
 
 
 
@@ -32,14 +34,19 @@ app.patch("/giveorder", async (req,res) => {                //Gives an order to 
   const order = {orderNumber: req.body.orderNumber};
  // const qr = {QRCode: crypto.randomBytes(8).toString('hex')};
   
-  const qr = await qr_code.toDataURL("some string");      //Beginning of QRcode implementation
+/*  const qr = await qr_code.toDataURL("some string");      //Beginning of QRcode implementation
   const code = Buffer.from(qr, 'base64');
   const qrx = {QRCode: code};
-
-
+*/
+/*
 await boxModel.findOneAndUpdate(id, order);
 const box = await boxModel.findOneAndUpdate(id, qrx);
+*/
+//const canvas = new Canvas();
 
+//JsBarcode(canvas, order, {
+//  displayValue: false
+//});
 
 try{
   await box.save();
