@@ -23,7 +23,7 @@ mongoose.connect(uri);
 
 app.use(boxRouter);
 
-app.get("/getcode", async (req,res) => {
+app.post("/getcode", async (req,res) => {
   
   try{
     const admin = req.body.code;
