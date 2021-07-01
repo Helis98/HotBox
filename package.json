@@ -17,6 +17,7 @@
     "crypto-js": "^4.0.0",
     "dotenv": "^9.0.0",
     "express": "^4.17.1",
+    "jsbarcode": "^3.11.4",
     "mongodb": "^3.6.6",
     "mongoose": "^5.12.7",
     "mongoose-sequence": "^5.3.1",
