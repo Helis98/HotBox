@@ -8,3 +8,11 @@
   justify-content: center;
   align-items: center;
 }
+
+.status {
+  border: solid black 1px;
+  background: none;
+  border-radius: 50%;
+  width: 1rem;
+  height: 1rem;
+}

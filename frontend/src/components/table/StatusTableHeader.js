@@ -8,21 +8,15 @@ function StatusTableHeader() {
         <div className={classes.header}>
           <div className={classes.element}>
             <div>
-              <StatusDisplay status="statusActive" />
+              <StatusDisplay status={true} />
             </div>
             <span>Active</span>
           </div>
           <div className={classes.element}>
             <div>
-              <StatusDisplay status="statusInactive" />
+              <StatusDisplay status={false} />
             </div>
             <span>Inactive</span>
-          </div>
-          <div className={classes.element}>
-            <div>
-              <StatusDisplay status="statusUnavailable" />
-            </div>
-            <span>Unavailable</span>
           </div>
         </div>
       </div>

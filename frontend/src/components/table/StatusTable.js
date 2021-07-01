@@ -1,44 +1,51 @@
+import { useState, useEffect } from "react";
+
 import classes from "./StatusTable.module.css";
 import StatusTableHeader from "./StatusTableHeader";
 import StatusTableEntry from "./StatusTableEntry";
 
 const TEST_DATA = [
   {
-    id: "box1",
-    status: "statusActive",
-    info: "todo",
-  },
-  {
-    id: "box2",
-    status: "statusUnavailable",
-    info: "todo",
-  },
-  {
-    id: "box3",
-    status: "statusInactive",
-    info: "todo",
-  },
-  {
-    id: "box4",
-    status: "statusInactive",
-    info: "todo",
+    BoxID: "654655654",
+    BoxNumber: 10,
+    Empty: true,
   },
 ];
 
 function StatusTable(props) {
+  const [isLoading, setIsLoading] = useState(true);
+  const [loadedData, setLoadedData] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/getorder")
+      .then((response) => response.json())
+      .then((data) => {
+        setLoadedData(data);
+        setIsLoading(false);
+      });
+  }, []);
+
+  if (isLoading) {
+    return (
+      <section>
+        <p>Loading...</p>
+      </section>
+    );
+  }
+
   return (
     <div className={classes.main}>
       <ul>
         <li key="tableheader">
           <StatusTableHeader />
         </li>
-        {TEST_DATA.map((entry) => {
+        {loadedData.map((entry) => {
           return (
-            <li key={entry.id}>
+            <li key={entry.BoxID}>
               <StatusTableEntry
-                id={entry.id}
-                status={entry.status}
-                info={entry.info}
+                BoxNumber={entry.BoxNumber}
+                Empty={entry.Empty}
+                info={"todo"}
               />
             </li>
           );
