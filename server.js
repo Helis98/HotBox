@@ -1,12 +1,11 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const boxRouter = require('./routes/boxRoutes.js');
-const cors = require('cors');
 
 
 const app = express();
 app.use(express.json()); // Make sure it comes back as json
-app.use(cors());
+
 app.options('*', cors());
 
 
@@ -41,6 +40,6 @@ app.get("/getcode", async (req,res) => {
     res.render('index.html');
   });
 */
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 3000;
 
-app.listen(port, () => { console.log('Server is running...') }); //Listen on port 5000
+app.listen(port, () => { console.log('Server is running...') }); //Listen on port 3000
