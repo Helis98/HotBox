@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const boxRouter = require('./routes/boxRoutes.js');
+const cors = require('cors');
 
 
 const app = express();
