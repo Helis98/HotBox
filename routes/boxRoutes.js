@@ -7,8 +7,8 @@ const mongoose = require('mongoose');
 const qr_code = require('qrcode');
 const { Code } = require('mongodb');
 const app = express();
-const JsBarcode = require('jsbarcode');
-const Canvas = require('canvas');
+//const JsBarcode = require('jsbarcode');
+//const Canvas = require('canvas');
 
 
 
@@ -42,11 +42,11 @@ app.patch("/giveorder", async (req,res) => {                //Gives an order to 
 await boxModel.findOneAndUpdate(id, order);
 const box = await boxModel.findOneAndUpdate(id, qrx);
 */
-const canvas = new Canvas();
+//const canvas = new Canvas();
 
-JsBarcode(canvas, order, {
-  displayValue: false
-});
+//JsBarcode(canvas, order, {
+//  displayValue: false
+//});
 
 try{
   await box.save();
