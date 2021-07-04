@@ -6,10 +6,15 @@ const cors = require('cors');
 
 
 const app = express();
-app.use(express.json()); // Make sure it comes back as json
-app.use(cors());
 
-app.options('*', cors());
+app.use(cors());
+app.options('*', cors()); 
+
+
+app.use(express.json()); // Make sure it comes back as json
+
+
+
 
 
 require('dotenv').config()
@@ -39,10 +44,10 @@ app.post("/getcode", async (req,res) => {
   }
 
 })
-/*app.get('/', function(req, res){
-    res.render('index.html');
+app.get('/', function(req, res){
+    res.render('index.js');
   });
-*/
+
 const port = process.env.PORT || 5000;
 
 app.listen(port, () => { console.log('Server is running...') }); //Listen on port 5000

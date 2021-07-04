@@ -7,6 +7,8 @@ const mongoose = require('mongoose');
 const qr_code = require('qrcode');
 const { Code } = require('mongodb');
 const app = express();
+//const cors = require('cors');
+
 //const JsBarcode = require('jsbarcode');
 //const Canvas = require('canvas');
 
@@ -15,6 +17,8 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended : true}));
 mongoose.set('useFindAndModify', false);
+//app.options('/deletebox', cors());
+
 
 app.post("/addbox", async (req, res) => {                   //Adds box to the database, without ordernumber and with a randomized BoxID
     req.body.BoxID = crypto.randomBytes(8).toString('hex');
@@ -88,7 +92,7 @@ app.delete("/deletebox", async (req,res) => {               //Deletes a box from
     const id = req.body.BoxID;
 
     try{
-      await boxModel.findOneAndDelete(id);
+      await boxModel.findOneAndDelete({BoxID: id});
       res.sendStatus(200);
     }catch(err){
       res.status(500).send("Box doesnt exist?");
@@ -97,11 +101,10 @@ app.delete("/deletebox", async (req,res) => {               //Deletes a box from
 
 app.patch("/boxstatus", async (req, res) => {                //Updates box status for empty field, so true or false
     const id = req.body.BoxID;
-    const update = {Empty: req.body.status};
-
-    const box = await boxModel.findOneAndUpdate(id, update);
+    const update = req.body.status
 
     try {
+        const box = await boxModel.findOneAndUpdate({BoxID: id}, {Empty: update}, {new: true});
         await box.save();
         res.send(box.Empty);
     } catch(err){
