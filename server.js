@@ -47,7 +47,7 @@ app.post("/getcode", async (req,res) => {
 
 
 app.get('/', function(req, res){
-    res.render('index.js');
+    res.render('./frontend/src/index.js');
   });
 
 const port = process.env.PORT || 5000;
