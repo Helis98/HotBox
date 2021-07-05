@@ -46,7 +46,7 @@ app.post("/getcode", async (req,res) => {
 })
 
 app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, 'frontend', 'src', 'index.js'));
+  res.sendFile(path.resolve(__dirname, 'frontend', 'public', 'index.html'));
 });
 
 
