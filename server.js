@@ -46,11 +46,25 @@ app.post("/getcode", async (req,res) => {
 })
 
 const port = process.env.PORT || 5000;
+
+if (process.env.NODE_ENV === 'production') 
+{
+  app.use(express.static(path.join(__dirname, 'frontend', 'build')));
+
+  app.get('*', (req, res) => 
+  {
+    res.sendFile(path.join(__dirname, 'frontend', 'build', 'index.html'))
+  });
+
+}
+
+
+
 /*const publicPath = path.join(__dirname, 'frontend', 'public');
 app.use(express.static(publicPath));
 */
 
-app.use(express.static(path.join(__dirname, 'build')));
+//app.use(express.static(path.join(__dirname, 'build')));
 
 /*app.get('*', (req, res) => {
   res.sendFile(path.join(publicPath , 'index.html'));
