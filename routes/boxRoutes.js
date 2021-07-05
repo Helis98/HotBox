@@ -34,8 +34,8 @@ app.post("/addbox", async (req, res) => {                   //Adds box to the da
 
 app.patch("/giveorder", async (req,res) => {                //Gives an order to the database by specifying the boxid and the order number
   
-  const id = {BoxID: req.body.BoxID};
-  const order = {orderNumber: req.body.orderNumber};
+  const id = req.body.BoxID;
+  const order =  req.body.orderNumber;
  // const qr = {QRCode: crypto.randomBytes(8).toString('hex')};
   
 /*  const qr = await qr_code.toDataURL("some string");      //Beginning of QRcode implementation
@@ -52,7 +52,9 @@ const box = await boxModel.findOneAndUpdate(id, qrx);
 //  displayValue: false
 //});
 
+
 try{
+  const box = await boxModel.findOneAndUpdate({BoxID: id}, {orderNumber: order}, {new: true});
   await box.save();
   res.sendStatus(200);
 }catch(err){
