@@ -88,9 +88,9 @@ app.get("/getstatus", async (req,res) => {                  //Gets the status of
 
 
 
-app.delete("/deletebox", async (req,res) => {               //Deletes a box from the database
-    const id = req.body.BoxID;
-
+app.delete("/deletebox/:id", async (req,res) => {               //Deletes a box from the database
+    const id = req.params.id;
+//localhost.../deletebox/0a6546f13e633b42
     try{
       await boxModel.findOneAndDelete({BoxID: id});
       res.sendStatus(200);

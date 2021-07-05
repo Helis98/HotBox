@@ -17,9 +17,8 @@ function AddBoxForm() {
     console.log(data);
 
     try {
-      fetch("http://localhost:5000/deletebox", {
+      fetch("http://localhost:5000/deletebox/" + boxid, {
         method: "DELETE",
-        body: data,
         headers: { "Content-Type": "application/json" },
       });
     } catch (err) {
