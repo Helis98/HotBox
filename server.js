@@ -2,7 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const boxRouter = require('./routes/boxRoutes.js');
 const cors = require('cors');
-
+const path = require('path');
 
 
 const app = express();
@@ -45,11 +45,15 @@ app.post("/getcode", async (req,res) => {
 
 })
 
+app.get('*', (req, res) => {
+  res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+});
 
-app.get('/', function(req, res){
+
+/*app.get('/', function(req, res){
     res.render('./frontend/src/index.js');
   });
-
+*/
 const port = process.env.PORT || 5000;
 
 app.listen(port, () => { console.log('Server is running...') }); //Listen on port 5000
