@@ -4,6 +4,14 @@ import classes from "./SystemPage.module.css";
 import AdminModal from "../components/modals/AdminModal";
 
 function ServerPage() {
+  function fetchPath(command) {
+    if (process.env.NODE_ENV === "production") {
+      return "https://hotbox14.herokuapp.com/" + command;
+    } else {
+      return "http://localhost:5000/" + command;
+    }
+  }
+
   const [addModalOpen, setAddModalOpen] = useState(false);
   const pinRef = useRef();
 
@@ -16,7 +24,7 @@ function ServerPage() {
     };
 
     try {
-      fetch("http://localhost:5000/getcode", {
+      fetch(fetchPath("getcode"), {
         method: "POST",
         body: JSON.stringify(data),
         headers: { "Content-Type": "application/json" },
