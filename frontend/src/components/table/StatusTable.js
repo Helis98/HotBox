@@ -4,14 +4,6 @@ import classes from "./StatusTable.module.css";
 import StatusTableHeader from "./StatusTableHeader";
 import StatusTableEntry from "./StatusTableEntry";
 
-const TEST_DATA = [
-  {
-    BoxID: "654655654",
-    BoxNumber: 10,
-    Empty: true,
-  },
-];
-
 function StatusTable(props) {
   const [isLoading, setIsLoading] = useState(true);
   const [loadedData, setLoadedData] = useState([]);
