@@ -10,12 +10,16 @@ function AddBoxForm() {
 
     const boxid = boxidRef.current.value;
 
-    console.log("Delete" + boxid);
+    const data = {
+      BoxID: boxid,
+    };
+
+    console.log(data);
 
     try {
       fetch("http://localhost:5000/deletebox", {
         method: "DELETE",
-        body: boxid,
+        body: data,
         headers: { "Content-Type": "application/json" },
       });
     } catch (err) {
