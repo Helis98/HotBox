@@ -3,6 +3,14 @@ import { useRef } from "react";
 import classes from "./OrderForm.module.css";
 
 function OrderForm() {
+  function fetchPath(command) {
+    if (process.env.NODE_ENV === "production") {
+      return "https://hotbox14.herokuapp.com/" + command;
+    } else {
+      return "http://localhost:5000/" + command;
+    }
+  }
+
   const boxIDRef = useRef();
   const orderNumRef = useRef();
 
@@ -19,7 +27,7 @@ function OrderForm() {
 
     console.log(orderData);
     try {
-      fetch("http://localhost:5000/giveorder", {
+      fetch(fetchPath("giveorder"), {
         method: "PATCH",
         body: JSON.stringify(orderData),
         headers: { "Content-Type": "application/json" },

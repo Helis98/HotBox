@@ -5,11 +5,19 @@ import StatusTableHeader from "./StatusTableHeader";
 import StatusTableEntry from "./StatusTableEntry";
 
 function StatusTable(props) {
+  function fetchPath(command) {
+    if (process.env.NODE_ENV === "production") {
+      return "https://hotbox14.herokuapp.com/" + command;
+    } else {
+      return "http://localhost:5000/" + command;
+    }
+  }
+
   const [isLoading, setIsLoading] = useState(true);
   const [loadedData, setLoadedData] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/getorder")
+    fetch(fetchPath("getorder"))
       .then((response) => response.json())
       .then((data) => {
         setLoadedData(data);

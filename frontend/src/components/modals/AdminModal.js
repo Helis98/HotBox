@@ -3,6 +3,14 @@ import { useRef } from "react";
 import classes from "./AdminModal.module.css";
 
 function AddBoxForm() {
+  function fetchPath(command) {
+    if (process.env.NODE_ENV === "production") {
+      return "https://hotbox14.herokuapp.com/" + command;
+    } else {
+      return "http://localhost:5000/" + command;
+    }
+  }
+
   const boxidRef = useRef();
 
   function deleteBoxHandler(event) {
@@ -17,7 +25,7 @@ function AddBoxForm() {
     console.log(data);
 
     try {
-      fetch("http://localhost:5000/deletebox/" + boxid, {
+      fetch(fetchPath("deletebox/") + boxid, {
         method: "DELETE",
         headers: { "Content-Type": "application/json" },
       });
@@ -30,7 +38,7 @@ function AddBoxForm() {
     event.preventDefault();
 
     try {
-      fetch("http://localhost:5000/addbox", {
+      fetch(fetchPath("addbox"), {
         method: "POST",
         headers: { "Content-Type": "application/json" },
       });
