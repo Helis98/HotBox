@@ -1,11 +1,11 @@
 import StatusTable from "../components/table/StatusTable";
-import SystemPage from "./SystemPage";
+import AdminLock from "./AdminLock";
 
 function StatusPage() {
   return (
     <div>
       <StatusTable />
-      <SystemPage />
+      <AdminLock />
     </div>
   );
 }

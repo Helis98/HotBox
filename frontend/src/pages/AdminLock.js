@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
 
-import classes from "./SystemPage.module.css";
+import classes from "./AdminLock.module.css";
 import AdminModal from "../components/modals/AdminModal";
 
 function ServerPage() {
