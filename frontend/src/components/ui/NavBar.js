@@ -14,9 +14,6 @@ function NavBar() {
           <li>
             <Link to="/order">Order</Link>
           </li>
-          <li>
-            <Link to="/system">System</Link>
-          </li>
         </ul>
       </nav>
     </header>
