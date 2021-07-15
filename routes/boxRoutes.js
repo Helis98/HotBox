@@ -4,13 +4,12 @@ const crypto = require("crypto");
 const bodyParser = require('body-parser');
 const { db } = require('../models/BoxSchema');
 const mongoose = require('mongoose');
-const qr_code = require('qrcode');
 const { Code } = require('mongodb');
 const app = express();
 //const cors = require('cors');
-
-//const JsBarcode = require('jsbarcode');
-//const Canvas = require('canvas');
+const JsBarcode = require('jsbarcode');
+const {createCanvas} = require('canvas');
+const nodemailer = require('nodemailer');
 
 
 
@@ -34,27 +33,52 @@ app.post("/addbox", async (req, res) => {                   //Adds box to the da
 
 app.patch("/giveorder", async (req,res) => {                //Gives an order to the database by specifying the boxid and the order number
   
-  const id = req.body.BoxID;
-  const order =  req.body.orderNumber;
- // const qr = {QRCode: crypto.randomBytes(8).toString('hex')};
-  
-/*  const qr = await qr_code.toDataURL("some string");      //Beginning of QRcode implementation
-  const code = Buffer.from(qr, 'base64');
-  const qrx = {QRCode: code};
-*/
-/*
-await boxModel.findOneAndUpdate(id, order);
-const box = await boxModel.findOneAndUpdate(id, qrx);
-*/
-//const canvas = new Canvas();
+  const id = req.body.BoxNumber;
+  const email =  req.body.email;
+  const ordernumber = Math.floor(Math.random() * 500) + 1;
 
-//JsBarcode(canvas, order, {
-//  displayValue: false
-//});
+  const canvas = createCanvas();
+  JsBarcode(canvas, ordernumber, {
+    displayValue: false
+  });
+
+  const img = canvas.toDataURL();
+
+  let transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+      user: process.env.EMAIL_USERNAME,
+      pass: process.env.EMAIL_PASS
+    }
+
+  });
+
+  let mailOptions = {
+    from: "hotbox0014@gmail.com",
+    to: email,
+    subject: 'Thank you for ordering with us!',
+    text: 'Your order number is: ' + ordernumber + " and it is located in Box Number: " + id + '. Please scan the barcode attached in this email to receive your food!',
+    attachments: [
+      {
+        filename: 'Barcode.png',
+        path: img
+      }
+    ]
+  }
+
+    transporter.sendMail(mailOptions, function(error, response){
+      if(error){
+        res.status(500).send("Unable to send email");
+      }else{
+        res.status(200);
+      }
+    })
+
+
 
 
 try{
-  const box = await boxModel.findOneAndUpdate({BoxID: id}, {orderNumber: order}, {new: true});
+  const box = await boxModel.findOneAndUpdate({BoxNumber: id}, {orderNumber: ordernumber}, {new: true});
   await box.save();
   res.sendStatus(200);
 }catch(err){
@@ -94,7 +118,7 @@ app.delete("/deletebox/:id", async (req,res) => {               //Deletes a box 
     const id = req.params.id;
 //localhost.../deletebox/0a6546f13e633b42
     try{
-      await boxModel.findOneAndDelete({BoxID: id});
+      await boxModel.findOneAndDelete({BoxNumber: id});
       res.sendStatus(200);
     }catch(err){
       res.status(500).send("Box doesnt exist?");
