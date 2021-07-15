@@ -49,8 +49,6 @@ function ServerPage() {
           <div className={classes.input}>
             <label htmlFor="pin">Admin PIN</label>
             <input type="password" required id="pin" ref={pinRef} />
-          </div>
-          <div className={classes.button}>
             <button className="btn">Submit Pin</button>
           </div>
         </form>
