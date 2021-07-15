@@ -2,7 +2,6 @@ import { Route, Switch } from "react-router-dom";
 
 import StatusPage from "./pages/StatusPage";
 import OrderPage from "./pages/OrderPage";
-import SystemPage from "./pages/SystemPage";
 import NavBar from "./components/ui/NavBar";
 
 function App() {
@@ -15,9 +14,6 @@ function App() {
         </Route>
         <Route path="/order">
           <OrderPage />
-        </Route>
-        <Route path="/system">
-          <SystemPage />
         </Route>
       </Switch>
     </div>
