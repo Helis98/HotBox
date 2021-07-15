@@ -1,5 +1,5 @@
 import StatusTable from "../components/table/StatusTable";
-import AdminLock from "./AdminLock";
+import AdminLock from "../components/modals/AdminLock";
 
 function StatusPage() {
   return (

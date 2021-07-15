@@ -1,7 +1,7 @@
 import { useState, useRef } from "react";
 
 import classes from "./AdminLock.module.css";
-import AdminModal from "../components/modals/AdminModal";
+import AdminModal from "./AdminModal";
 
 function ServerPage() {
   function fetchPath(command) {
