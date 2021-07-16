@@ -1,6 +1,8 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 import classes from "./AdminModal.module.css";
+import AddBoxModal from "./AddBoxModal";
+import BackdropModal from "./BackdropModal";
 
 function AddBoxForm() {
   function fetchPath(command) {
@@ -12,6 +14,8 @@ function AddBoxForm() {
   }
 
   const boxidRef = useRef();
+
+  const [displayAddModal, setDisplayAddModal] = useState(false);
 
   function deleteBoxHandler(event) {
     event.preventDefault();
@@ -34,18 +38,12 @@ function AddBoxForm() {
       return;
     }
   }
-  function addBox(event) {
-    event.preventDefault();
+  function addBox() {
+    setDisplayAddModal(true);
+  }
 
-    try {
-      fetch(fetchPath("addbox"), {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-      });
-    } catch (err) {
-      alert(err.toString());
-      return;
-    }
+  function closeAddModal() {
+    setDisplayAddModal(false);
   }
 
   return (
@@ -64,6 +62,8 @@ function AddBoxForm() {
           <button className="btn">Delete Box</button>
         </div>
       </form>
+      {displayAddModal && <AddBoxModal onCancel={closeAddModal} />}
+      {displayAddModal && <BackdropModal onClick={closeAddModal} />}
     </div>
   );
 }
