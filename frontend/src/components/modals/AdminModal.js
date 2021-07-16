@@ -25,6 +25,10 @@ function AddBoxForm() {
     setDisplayDeleteModal(false);
   }
 
+  function refreshPage() {
+    window.location.reload(false);
+  }
+
   return (
     <div>
       <div className={classes.button}>
@@ -33,6 +37,9 @@ function AddBoxForm() {
         </button>
         <button className="btn btnSpace" onClick={deleteBox}>
           Delete Box
+        </button>
+        <button className="btn btn--alt btnSpace" onClick={refreshPage}>
+          Close Admin
         </button>
       </div>
       {displayAddModal && <AddBoxModal onCancel={closeAddModal} />}
