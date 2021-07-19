@@ -3,7 +3,7 @@
 }
 
 body {
-  background-color: #d8d8d8;
+  background-color: #ececec;
 }
 
 .statusActive {
@@ -24,17 +24,24 @@ body {
 
 .btn {
   cursor: pointer;
-  background-color: #565656;
+  background-color: #cf2525;
   color: white;
   padding: 0.5rem 1.5rem;
   border: 1px solid black;
   border-radius: 4px;
-  font-weight: bold;
+  font-size: 15px;
 }
 
 .btn--alt {
   background-color: #e6e6e6;
   color: black;
+}
+
+.btn--order {
+  padding: 0.5rem 2rem;
+  font-size: 17px;
+  width: 15rem;
+  font-weight: 200;
 }
 
 .btnSpace {

@@ -42,7 +42,8 @@ function OrderForm() {
   }
 
   return (
-    <div>
+    <div className={classes.main}>
+      <h1>Place an order!</h1>
       <form className={classes.form} onSubmit={submitHandler}>
         <div className={classes.row}>
           <div className={classes.input}>
@@ -79,7 +80,7 @@ function OrderForm() {
           </select>
         </div>
         <div className={classes.button}>
-          <button className="btn">Submit Order</button>
+          <button className="btn btn--order">Submit Order</button>
         </div>
       </form>
     </div>
