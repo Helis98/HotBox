@@ -4,7 +4,7 @@ import classes from "./StatusTable.module.css";
 import StatusTableHeader from "./StatusTableHeader";
 import StatusTableEntry from "./StatusTableEntry";
 
-function StatusTable(props) {
+function StatusTable() {
   function fetchPath(command) {
     if (process.env.NODE_ENV === "production") {
       return "https://hotbox14.herokuapp.com/" + command;
@@ -27,7 +27,7 @@ function StatusTable(props) {
 
   if (isLoading) {
     return (
-      <section>
+      <section className={classes.loading}>
         <p>Loading...</p>
       </section>
     );
@@ -45,7 +45,7 @@ function StatusTable(props) {
               <StatusTableEntry
                 BoxNumber={entry.BoxNumber}
                 Empty={entry.Empty}
-                info={"todo"}
+                info={entry.orderNumber}
               />
             </li>
           );

@@ -7,11 +7,25 @@
   display: flex;
   justify-content: center;
   align-items: top;
-  width: 100vw;
-  margin-top: 5rem;
-  margin-bottom: 2rem;
+  width: 100%;
+}
+
+.main ul {
+  padding-top: 5rem;
 }
 
 .main li {
   list-style: none;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20rem;
+}
+
+.loading p {
+  font-size: 30px;
+  margin-bottom: 50vh;
 }

@@ -12,19 +12,19 @@ function OrderForm() {
   }
 
   const boxIDRef = useRef();
-  const orderNumRef = useRef();
+  const emailRef = useRef();
   const foodRef = useRef();
 
   function submitHandler(event) {
     event.preventDefault();
 
     const boxID = boxIDRef.current.value;
-    const orderNum = orderNumRef.current.value;
+    const email = emailRef.current.value;
     const food = foodRef.current.value;
 
     const orderData = {
-      BoxID: boxID,
-      orderNumber: orderNum,
+      BoxNumber: boxID,
+      email: email,
     };
 
     console.log(orderData);
@@ -42,7 +42,8 @@ function OrderForm() {
   }
 
   return (
-    <div>
+    <div className={classes.main}>
+      <h1>Place an order!</h1>
       <form className={classes.form} onSubmit={submitHandler}>
         <div className={classes.row}>
           <div className={classes.input}>
@@ -56,7 +57,7 @@ function OrderForm() {
         </div>
         <div className={classes.input}>
           <label htmlFor="email">Email</label>
-          <input type="text" required id="email" />
+          <input type="text" required id="email" ref={emailRef}/>
         </div>
         <div className={classes.input}>
           <label htmlFor="phoneNumber">Phone Number</label>
@@ -67,10 +68,6 @@ function OrderForm() {
           <input type="text" required id="boxid" ref={boxIDRef} />
         </div>
         <div className={classes.input}>
-          <label htmlFor="ordernum">Order Number</label>
-          <input type="text" required id="ordernum" ref={orderNumRef} />
-        </div>
-        <div className={classes.input}>
           <label htmlFor="food">Select Your Food</label>
           <select required id="food" ref={foodRef}>
             <option value="bacon">Bacon</option>
@@ -79,7 +76,7 @@ function OrderForm() {
           </select>
         </div>
         <div className={classes.button}>
-          <button className="btn">Submit Order</button>
+          <button className="btn btn--order">Submit Order</button>
         </div>
       </form>
     </div>
