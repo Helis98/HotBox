@@ -33,7 +33,7 @@ function StatusTableHeader() {
         </div>
         <div className={classes.info}>
           <div>
-            <span className={classes.text}>Info</span>
+            <span className={classes.text}>Order</span>
           </div>
         </div>
       </div>

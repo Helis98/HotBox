@@ -45,7 +45,7 @@ function StatusTable() {
               <StatusTableEntry
                 BoxNumber={entry.BoxNumber}
                 Empty={entry.Empty}
-                info={"todo"}
+                info={entry.orderNumber}
               />
             </li>
           );
