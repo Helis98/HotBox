@@ -3,8 +3,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100vw;
-  margin-top: 5rem;
+  width: 100%;
 }
 
 .container {
@@ -12,4 +11,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: 5rem;
+  background-color: white;
+  padding: 3rem;
 }

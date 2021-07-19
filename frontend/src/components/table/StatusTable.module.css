@@ -7,9 +7,13 @@
   display: flex;
   justify-content: center;
   align-items: top;
-  width: 100vw;
-  margin-top: 5rem;
+  width: 100%;
   margin-bottom: 2rem;
+  background-color: white;
+}
+
+.main ul {
+  margin-top: 5rem;
 }
 
 .main li {
