@@ -27,7 +27,7 @@ function StatusTable() {
 
   if (isLoading) {
     return (
-      <section>
+      <section className={classes.loading}>
         <p>Loading...</p>
       </section>
     );
