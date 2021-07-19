@@ -4,7 +4,7 @@ import classes from "./StatusTable.module.css";
 import StatusTableHeader from "./StatusTableHeader";
 import StatusTableEntry from "./StatusTableEntry";
 
-function StatusTable(props) {
+function StatusTable() {
   function fetchPath(command) {
     if (process.env.NODE_ENV === "production") {
       return "https://hotbox14.herokuapp.com/" + command;
