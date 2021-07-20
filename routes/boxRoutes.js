@@ -118,10 +118,14 @@ app.delete("/deletebox/:id", async (req,res) => {               //Deletes a box 
     const id = req.params.id;
 //localhost.../deletebox/0a6546f13e633b42
     try{
-      await boxModel.findOneAndDelete({BoxNumber: id});
-      res.sendStatus(200);
+      const box = await boxModel.findOneAndDelete({BoxNumber: id});
+      if(box == null){
+        res.send("Box doesn't exist?")
+      }else{
+        res.send(box);
+      }
     }catch(err){
-      res.status(500).send("Box doesnt exist?");
+      res.status(500).send("Something went wrong.");
     }
 })
 
