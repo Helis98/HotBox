@@ -58,7 +58,7 @@ function OrderForm() {
         </div>
         <div className={classes.input}>
           <label htmlFor="email">Email</label>
-          <input type="text" required id="email" ref={emailRef} />
+          <input type="email" required id="email" ref={emailRef} />
         </div>
         <div className={classes.input}>
           <label htmlFor="phoneNumber">Phone Number</label>
