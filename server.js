@@ -1,6 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const boxRouter = require('./routes/boxRoutes.js');
+const embeddedBoxRouter = require('./routes/embeddedboxRoutes.js');
 const cors = require('cors');
 const path = require('path');
 
@@ -27,6 +28,7 @@ mongoose.set('useUnifiedTopology', true);
 mongoose.connect(uri);
 
 app.use(boxRouter);
+app.use(embeddedBoxRouter);
 
 app.post("/getcode", async (req,res) => {
   
