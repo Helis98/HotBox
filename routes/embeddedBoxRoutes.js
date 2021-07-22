@@ -36,7 +36,7 @@ app.get("/checkBarcode", async (req,res) => {
 
 // Modified version of what was already in boxRoutes. This does not take any paramaters and gets called
 // When the order is placed and the box needs the info
-app.get("/getorder", async (req,res) => {                   //Gets an existing order from the database and send to a box
+app.get("/getactivebox", async (req,res) => {                   //Gets an existing order from the database and send to a box
     try {
         const Box = await boxModel.findOne({Empty : false});
         if (Box == null) {
