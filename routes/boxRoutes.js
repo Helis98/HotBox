@@ -88,18 +88,7 @@ try{
 });
 
 
-
-app.get("/getorder", async (req,res) => {                   //Gets an existing order from the database and send to a box
-    const Box = await boxModel.find({});
-    try{
-      res.send(Box);
-    }catch(err){
-      res.status(500).send(err);
-    }
-    
-});
-
-app.get("/getstatus", async (req,res) => {                  //Gets the status of a box, if it is empty or not
+app.get("/getstatus/:BoxID", async (req,res) => {                  //Gets the status of a box, if it is empty or not
   const id = req.body.BoxID;
   const Box = await boxModel.findOne({BoxID : id});
   //const response = Box.Empty;
