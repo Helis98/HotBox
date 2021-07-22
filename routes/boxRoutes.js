@@ -104,7 +104,7 @@ app.get("/getstatus", async (req,res) => {                  //Gets the status of
   const Box = await boxModel.findOne({BoxID : id});
   //const response = Box.Empty;
   try{
-    res.send(Box.Empty);
+    res.send(Box);
   }catch(err){
     res.status(500).send(err);
   }
