@@ -1,7 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const boxRouter = require('./routes/boxRoutes.js');
-const embeddedBoxRouter = require('./routes/embeddedboxRoutes.js');
+const embeddedBoxRouter = require('./routes/embeddedBoxRoutes.js');
 const cors = require('cors');
 const path = require('path');
 
