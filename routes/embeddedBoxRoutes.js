@@ -39,10 +39,10 @@ app.get("/checkBarcode", async (req,res) => {
 app.get("/getorder", async (req,res) => {                   //Gets an existing order from the database and send to a box
     try {
         const Box = await boxModel.findOne({Empty : false});
-        if (Box) {
-        res.send(Box);
+        if (Box == null) {
+            res.status(500).send("No boxes active at this time");
         }else{
-        res.status(500).send("No boxes active at this time");
+            res.send(Box);
         }
     }catch (err) {
         res.status(500).send(err);
