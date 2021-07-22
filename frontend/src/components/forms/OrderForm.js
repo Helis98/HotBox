@@ -69,9 +69,7 @@ function OrderForm() {
           <input type="text" required id="boxid" ref={boxIDRef} />
         </div>
         <div className={classes.input}>
-          <label htmlFor="temperature">
-            How hot would you like it kept at?
-          </label>
+          <label htmlFor="temperature">Heat Level</label>
           <select required id="temperature" ref={temperatureRef}>
             <option value={140}>Warm</option>
             <option value={145}>Warmer</option>
