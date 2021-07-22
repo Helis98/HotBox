@@ -8,7 +8,7 @@ const boxSchema = new mongoose.Schema({
 
     Empty: {
         type: Boolean,
-        default: true
+        default: false
     },
 
     BoxID: {
