@@ -40,7 +40,10 @@ app.patch("/giveorder", async (req,res) => {                //Gives an order to 
 
   const canvas = createCanvas();
   JsBarcode(canvas, ordernumber, {
-    displayValue: false
+    format: "EAN",
+    displayValue: false,
+    width: 2,
+    height: 100
   });
 
   const img = canvas.toDataURL();
