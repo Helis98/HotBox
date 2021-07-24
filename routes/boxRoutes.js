@@ -78,7 +78,7 @@ app.patch("/giveorder", async (req,res) => {                //Gives an order to 
 
 
 try{
-  const box = await boxModel.findOneAndUpdate({BoxNumber: id}, {orderNumber: ordernumber}, {new: true});
+  const box = await boxModel.findOneAndUpdate({BoxNumber: id}, {orderNumber: ordernumber}, {Empty: false}, {new: true});
   await box.save();
   res.sendStatus(200);
 }catch(err){
@@ -153,6 +153,32 @@ app.patch("/boxstatus", async (req, res) => {                //Updates box statu
       res.status(500).send("died updating");
     }*/
     
+});
+
+app.patch("/boxstatusembedded", async (req, res) => {                //Updates box status for empty field, so true or false
+  const id = req.query.BoxID;
+  const update = req.query.status;
+
+  try {
+      const box = await boxModel.findOneAndUpdate({BoxID: id}, {Empty: update}, {new: true});
+      await box.save();
+      res.send(box.Empty);
+  } catch(err){
+    res.status(500).send(err);
+  }
+
+  /*try{
+    var box = await boxModel.find({BoxID : id});
+  }catch(err){
+    res.status(500).send("died looking");
+  }
+
+  try{
+    box.Empty = updateStatus;
+  }catch(err){
+    res.status(500).send("died updating");
+  }*/
+  
 });
 
 
