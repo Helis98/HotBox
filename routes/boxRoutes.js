@@ -36,6 +36,7 @@ app.patch("/giveorder", async (req,res) => {                //Gives an order to 
   const id = req.body.BoxNumber;
   const email =  req.body.email;
   const ordernumber = Math.floor(Math.random() * 500) + 1;
+  const temp = req.body.temperature;
 
   const canvas = createCanvas();
   JsBarcode(canvas, ordernumber, {
@@ -78,7 +79,7 @@ app.patch("/giveorder", async (req,res) => {                //Gives an order to 
 
 
 try{
-  const box = await boxModel.findOneAndUpdate({BoxNumber: id}, {orderNumber: ordernumber, Empty: false}, {new: true});
+  const box = await boxModel.findOneAndUpdate({BoxNumber: id}, {orderNumber: ordernumber, Empty: false, Temperature: temp}, {new: true});
   await box.save();
   res.sendStatus(200);
 }catch(err){
