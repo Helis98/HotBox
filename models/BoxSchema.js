@@ -19,8 +19,8 @@ const boxSchema = new mongoose.Schema({
         type: Number
     },
 
-    QRCode: {
-        type: Buffer
+    Temperature: {
+        type: Number
     }
 
     
