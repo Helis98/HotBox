@@ -155,6 +155,20 @@ app.patch("/boxstatus", async (req, res) => {                //Updates box statu
     
 });
 
+app.patch("/boxstatusembedded", async (req, res) => {                //Updates box status for empty field, so true or false
+  const id = req.query.BoxID;
+  const update = req.query.status;
+
+  try {
+      const box = await boxModel.findOneAndUpdate({BoxID: id}, {Empty: update}, {new: true});
+      await box.save();
+      res.send(box.Empty);
+  } catch(err){
+    res.status(500).send(err);
+  }
+  
+});
+
 
 
 
