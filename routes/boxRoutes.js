@@ -159,6 +159,13 @@ app.patch("/boxstatusembedded", async (req, res) => {                //Updates b
   const id = req.query.BoxID;
   const update = req.query.status;
 
+  if (update == "true") {
+    update = true;
+  }
+  else if (update == "fasle") {
+    update = false;
+  }
+
   try {
       const box = await boxModel.findOneAndUpdate({BoxID: id}, {Empty: update}, {new: true});
       await box.save();
