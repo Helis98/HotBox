@@ -20,7 +20,8 @@ const boxSchema = new mongoose.Schema({
     },
 
     Temperature: {
-        type: Number
+        type: Number,
+        default: '0'
     }
 
     
