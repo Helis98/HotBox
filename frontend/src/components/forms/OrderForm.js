@@ -13,22 +13,23 @@ function OrderForm() {
 
   const boxIDRef = useRef();
   const emailRef = useRef();
-  const foodRef = useRef();
+  const temperatureRef = useRef();
 
   function submitHandler(event) {
     event.preventDefault();
 
     const boxID = boxIDRef.current.value;
     const email = emailRef.current.value;
-    const food = foodRef.current.value;
+    const temperature = temperatureRef.current.value;
 
     const orderData = {
       BoxNumber: boxID,
       email: email,
+      temperature: temperature,
     };
 
     console.log(orderData);
-    console.log(food);
+    console.log(temperature);
     try {
       fetch(fetchPath("giveorder"), {
         method: "PATCH",
@@ -57,7 +58,7 @@ function OrderForm() {
         </div>
         <div className={classes.input}>
           <label htmlFor="email">Email</label>
-          <input type="text" required id="email" ref={emailRef}/>
+          <input type="email" required id="email" ref={emailRef} />
         </div>
         <div className={classes.input}>
           <label htmlFor="phoneNumber">Phone Number</label>
@@ -68,11 +69,11 @@ function OrderForm() {
           <input type="text" required id="boxid" ref={boxIDRef} />
         </div>
         <div className={classes.input}>
-          <label htmlFor="food">Select Your Food</label>
-          <select required id="food" ref={foodRef}>
-            <option value="bacon">Bacon</option>
-            <option value="burger">Burger</option>
-            <option value="wrap">Wrap</option>
+          <label htmlFor="temperature">Heat Level</label>
+          <select required id="temperature" ref={temperatureRef}>
+            <option value={140}>Warm</option>
+            <option value={145}>Warmer</option>
+            <option value={150}>Hot</option>
           </select>
         </div>
         <div className={classes.button}>

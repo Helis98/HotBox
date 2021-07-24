@@ -78,7 +78,7 @@ app.patch("/giveorder", async (req,res) => {                //Gives an order to 
 
 
 try{
-  const box = await boxModel.findOneAndUpdate({BoxNumber: id}, {orderNumber: ordernumber}, {Empty: false}, {new: true});
+  const box = await boxModel.findOneAndUpdate({BoxNumber: id}, {orderNumber: ordernumber, Empty: false}, {new: true});
   await box.save();
   res.sendStatus(200);
 }catch(err){
@@ -166,18 +166,6 @@ app.patch("/boxstatusembedded", async (req, res) => {                //Updates b
   } catch(err){
     res.status(500).send(err);
   }
-
-  /*try{
-    var box = await boxModel.find({BoxID : id});
-  }catch(err){
-    res.status(500).send("died looking");
-  }
-
-  try{
-    box.Empty = updateStatus;
-  }catch(err){
-    res.status(500).send("died updating");
-  }*/
   
 });
 
