@@ -155,16 +155,16 @@ app.patch("/boxstatus", async (req, res) => {                //Updates box statu
     
 });
 
-app.patch("/boxstatusembedded", async (req, res) => {                //Updates box status for empty field, so true or false
+app.post("/boxstatusembedded", async (req, res) => {                //Updates box status for empty field, so true or false
   const id = req.query.BoxID;
   const update = req.query.status;
 
-  if (update == "true") {
-    update = true;
-  }
-  else if (update == "fasle") {
-    update = false;
-  }
+  // if (update == "true") {
+  //   update = true;
+  // }
+  // else if (update == "false") {
+  //   update = false;
+  // }
 
   try {
       const box = await boxModel.findOneAndUpdate({BoxID: id}, {Empty: update}, {new: true});
