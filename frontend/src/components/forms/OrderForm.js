@@ -78,9 +78,9 @@ function OrderForm() {
         <div className={classes.input}>
           <label htmlFor="temperature">Heat Level</label>
           <select required id="temperature" ref={temperatureRef}>
-            <option value={140}>Warm</option>
-            <option value={145}>Warmer</option>
-            <option value={150}>Hot</option>
+            <option value={110}>Warm</option>
+            <option value={125}>Warmer</option>
+            <option value={140}>Hot</option>
           </select>
         </div>
         <div className={classes.button}>
