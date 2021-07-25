@@ -7,8 +7,8 @@ const mongoose = require('mongoose');
 const { Code } = require('mongodb');
 const app = express();
 //const cors = require('cors');
-const JsBarcode = require('jsbarcode');
-const {createCanvas} = require('canvas');
+//const JsBarcode = require('jsbarcode');
+//const {createCanvas} = require('canvas');
 const nodemailer = require('nodemailer');
 const QRcode = require('qrcode');
 
