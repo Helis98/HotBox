@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 import classes from "./OrderForm.module.css";
 
@@ -10,6 +10,8 @@ function OrderForm() {
       return "http://localhost:5000/" + command;
     }
   }
+
+  const [orderCreated, setOrderCreated] = useState(false);
 
   const boxIDRef = useRef();
   const emailRef = useRef();
@@ -40,6 +42,11 @@ function OrderForm() {
       alert(err.toString());
       return;
     }
+    setOrderCreated(true);
+  }
+
+  function closeConfirmation() {
+    setOrderCreated(false);
   }
 
   return (
@@ -80,6 +87,15 @@ function OrderForm() {
           <button className="btn btn--order">Submit Order</button>
         </div>
       </form>
+      {orderCreated && (
+        <div className={classes.confirmModal}>
+          <p>Your order has been placed!</p>
+          <p>Please check your email for the order details</p>
+          <button className="btn btn--alt btnSpace" onClick={closeConfirmation}>
+            Close
+          </button>
+        </div>
+      )}
     </div>
   );
 }
