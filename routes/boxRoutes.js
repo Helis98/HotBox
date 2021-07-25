@@ -84,7 +84,7 @@ app.patch("/giveorder", async (req,res) => {                //Gives an order to 
 
 
 try{
-  const box = await boxModel.findOneAndUpdate({BoxNumber: id}, {orderNumber: ordernumber, Empty: false, Temperature: temp}, {new: true});
+  const box = await boxModel.findOneAndUpdate({BoxNumber: id}, {orderNumber: ordernumber, Temperature: temp}, {new: true});
   await box.save();
   res.sendStatus(200);
 }catch(err){
