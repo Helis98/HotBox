@@ -72,7 +72,7 @@ function OrderForm() {
           <input type="text" required id="phoneNumber" />
         </div>
         <div className={classes.input}>
-          <label htmlFor="boxid">Box ID</label>
+          <label htmlFor="boxid">Box Number</label>
           <input type="text" required id="boxid" ref={boxIDRef} />
         </div>
         <div className={classes.input}>
