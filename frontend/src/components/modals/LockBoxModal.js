@@ -21,13 +21,12 @@ function LockBoxModal(props) {
 
     const data = {
       BoxID: boxid,
-      status: false,
     };
 
     console.log(data);
 
     try {
-      fetch(fetchPath("boxstatus"), {
+      fetch(fetchPath("lockbox"), {
         method: "PATCH",
         body: JSON.stringify(data),
         headers: { "Content-Type": "application/json" },
