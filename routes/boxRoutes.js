@@ -10,6 +10,7 @@ const app = express();
 const JsBarcode = require('jsbarcode');
 const {createCanvas} = require('canvas');
 const nodemailer = require('nodemailer');
+const QRcode = require('qrcode');
 
 
 
@@ -37,16 +38,17 @@ app.patch("/giveorder", async (req,res) => {                //Gives an order to 
   const email =  req.body.email;
   const ordernumber = Math.floor(Math.random() * 500) + 1;
   const temp = req.body.temperature;
+  const orderString = ordernumber.toString();
 
-  const canvas = createCanvas();
-  JsBarcode(canvas, ordernumber, {
-    format: "EAN",
-    displayValue: false,
-    width: 2,
-    height: 100
-  });
+  //const canvas = createCanvas();
+  /*JsBarcode(canvas, ordernumber, {
+    format: 'auto',
+    displayValue: false
+  });*/
 
-  const img = canvas.toDataURL();
+ const code = await QRcode.toDataURL(orderString);
+
+  //const img = canvas.toDataURL();
 
   let transporter = nodemailer.createTransport({
     service: 'gmail',
@@ -65,7 +67,7 @@ app.patch("/giveorder", async (req,res) => {                //Gives an order to 
     attachments: [
       {
         filename: 'Barcode.png',
-        path: img
+        path: code
       }
     ]
   }
