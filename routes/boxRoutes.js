@@ -140,7 +140,7 @@ app.patch("/boxstatus", async (req, res) => {                //Updates box statu
     const update = req.body.status
 
     try {
-        const box = await boxModel.findOneAndUpdate({BoxID: id}, {Empty: update}, {new: true});
+        const box = await boxModel.findOneAndUpdate({BoxNumber: id}, {Empty: update}, {new: true});
         await box.save();
         res.send(box.Empty);
     } catch(err){
