@@ -140,7 +140,7 @@ app.patch("/boxstatus", async (req, res) => {                //Updates box statu
     const update = req.body.status
 
     try {
-        const box = await boxModel.findOneAndUpdate({BoxNumber: id}, {Empty: update}, {new: true});
+        const box = await boxModel.findOneAndUpdate({BoxID: id}, {Empty: update}, {new: true});
         await box.save();
         res.send(box.Empty);
     } catch(err){
@@ -159,6 +159,19 @@ app.patch("/boxstatus", async (req, res) => {                //Updates box statu
       res.status(500).send("died updating");
     }*/
     
+});
+
+app.patch("/lockbox", async (req, res) => {                //Locks box
+  const id = req.body.BoxID;
+  const update = false;
+
+  try {
+      const box = await boxModel.findOneAndUpdate({BoxNumber: id}, {Empty: update}, {new: true});
+      await box.save();
+      res.send(box.Empty);
+  } catch(err){
+    res.status(500).send(err);
+  }
 });
 
 app.post("/boxstatusembedded", async (req, res) => {                //Updates box status for empty field, so true or false
