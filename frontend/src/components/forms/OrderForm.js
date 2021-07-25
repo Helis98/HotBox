@@ -87,10 +87,9 @@ function OrderForm() {
           <button className="btn btn--order">Submit Order</button>
         </div>
       </form>
-      {orderCreated && (
+      {!orderCreated && (
         <div className={classes.confirmModal}>
-          <p>Your order has been placed!</p>
-          <p>Please check your email for the order details</p>
+          <p className={classes.bold}>Your order has been placed!</p>
           <button className="btn btn--alt btnSpace" onClick={closeConfirmation}>
             Close
           </button>
